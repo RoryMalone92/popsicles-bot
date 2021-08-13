@@ -174,6 +174,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		}
 
 		// Get Height
+		//Dave eats poopoo
 		if strings.HasPrefix(m.Content, prefix+"height") {
 			uid, err := convertStrToInt(m.Mentions[len(m.Mentions)-1].ID)
 			if err != nil {
@@ -182,7 +183,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 			height, err := getStoredHeight(uid)
 			if err != nil {
 				if err == sql.ErrNoRows {
-					_, err = s.ChannelMessageSend(m.ChannelID, "This user did not set his height yet.")
+					_, err = s.ChannelMessageSend(m.ChannelID, "This user did not set their height yet.")
 					if err != nil {
 						log.Errorf("Error sending message: %v", err)
 					}
